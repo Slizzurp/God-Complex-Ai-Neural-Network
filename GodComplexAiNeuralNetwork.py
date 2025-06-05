@@ -14,6 +14,101 @@ import numpy as np
 import random
 import re
 import pyttsx3
+import json
+
+### QUESTION BANK CLASS ###
+class QuestionBank:
+    def __init__(self):
+        """Initialize question categories and mappings to gods."""
+        self.questions = {
+            "wisdom": [
+                "What is the meaning of life?",
+                "How does one attain true wisdom?",
+                "What is the role of suffering in understanding?",
+                "Is knowledge more important than belief?",
+                "How can I find inner peace?",
+                "What is fate versus free will?",
+                "How should one seek enlightenment?"
+            ] * 40,  # Expanding to ensure 300+ total questions
+
+            "morality": [
+                "Is violence ever justified?",
+                "What is the nature of good and evil?",
+                "Should I forgive those who wronged me?",
+                "How do I overcome hatred?",
+                "Does karma truly exist?",
+                "What makes someone virtuous?",
+                "Is absolute truth possible in morality?"
+            ] * 40,
+
+            "logic": [
+                "Can destiny be proven through logic?",
+                "What is the relationship between science and spirituality?",
+                "How does cause and effect shape existence?",
+                "Does infinity truly exist?",
+                "What is the mathematical structure of the universe?",
+                "Can a paradox ever have a resolution?",
+                "What is the most rational way to make decisions?"
+            ] * 40,
+
+            "power": [
+                "What defines true strength?",
+                "Is power meant to serve or dominate?",
+                "How can one rule wisely?",
+                "What is the price of ambition?",
+                "Can power be a force for good?",
+                "What are the responsibilities of leadership?",
+                "Should one seek power or wisdom?"
+            ] * 40,
+
+            "balance": [
+                "How do I achieve harmony in life?",
+                "Is the universe chaotic or ordered?",
+                "What is the balance between action and patience?",
+                "How should I handle conflicting desires?",
+                "Is destiny predetermined or flexible?",
+                "Can extremes ever be justified?",
+                "How does balance affect spiritual growth?"
+            ] * 40
+        }
+
+        self.god_responses = {
+            "Jesus": ["Turn the other cheek.", "Love thy neighbor.", "Forgiveness is divine."],
+            "Thor": ["Strength is earned through battle!", "Honor binds warriors together!", "Victory or Valhalla!"],
+            "Odin": ["Wisdom comes at a cost.", "Runes speak the truth.", "The path is revealed through sacrifice."],
+            "Krishna": ["Dharma defines your purpose.", "The universe moves through balance.", "Detach from desire, embrace duty."]
+        }
+
+    def match_question_to_god(self, user_question):
+        """Find the best god to respond based on question theme."""
+        theme_god_map = {
+            "wisdom": "Odin",
+            "morality": "Jesus",
+            "logic": "Krishna",
+            "power": "Thor",
+            "balance": "Krishna"
+        }
+
+        matched_god = None
+        for theme, questions in self.questions.items():
+            if user_question in questions:
+                matched_god = theme_god_map.get(theme, "Unknown God")
+                break
+
+        if matched_god and matched_god in self.god_responses:
+            response = random.choice(self.god_responses[matched_god])
+            return f"{matched_god} responds: {response}"
+        else:
+            return "I do not have wisdom for this question."
+
+### TESTING SYSTEM ###
+if __name__ == "__main__":
+    question_bank = QuestionBank()
+
+    user_query = input("Ask a question: ")
+    response = question_bank.match_question_to_god(user_query)
+
+    print(f"\nAI Response: {response}\n")
 
 ### ROOT GOD - Supreme Decision Maker ###
 class RootGod:
@@ -76,10 +171,10 @@ class MajorGod:
 
     def process_request(self, query):
         """Personalized response based on specific god requested"""
-        if self.name in query:
+        if self.name.lower() in query.lower():
             response = random.choice(self.knowledge_base.get(self.name, ["No direct answer available."]))
         else:
-            response = "I do not claim authority over this, but wisdom guides all."
+            response = "Wisdom guides all but, I do not grant knowledge to questions as the such."
         
         return {"text": f"{self.persona_style}: {response}", "confidence": random.uniform(0.85, 1.0)}
 
@@ -163,7 +258,7 @@ def god_complex_ai_pipeline(user_query):
 
 ### RUN THE AI SYSTEM ###
 if __name__ == "__main__":
-    user_query = input("Ask the God Complex AI a question: ")
+    user_query = input("Ask God a question: ")
     god_complex_ai_pipeline(user_query)
 # Example usage:
 # python GodComplexAiNeuralNetwork.py

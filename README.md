@@ -1,6 +1,7 @@
 (Early Development Pre-Alpha Stage) 
 # **God Complex AI Neural Network**
 ### **A Multi-Tier AI System Inspired by Divine Hierarchies**
+![GodComplex](https://github.com/user-attachments/assets/6b0f4a8d-d12c-42e9-b5d4-4792c98c1c43)
 
 ## **Overview**
 The **God Complex AI Neural Network** is an advanced AI framework structured in **four hierarchical tiers**. It models **divine intelligence** using **multi-agent processing**, where AI personas represent gods, demigods, heroes, saints, and prophets, creating a **deep-thinking conversational system**.

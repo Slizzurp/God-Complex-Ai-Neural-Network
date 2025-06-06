@@ -101,3 +101,18 @@ threading
 
 ---
 
+## **📜 Licensing & Credits**  
+
+GodAi v1 is licensed under the **MIT License**, allowing anyone to use, modify, and distribute the software freely while ensuring proper attribution to its creators.  
+
+### **Credits**  
+🔹 **Mirnes Kudic** – Creator of **GodAi**, developer, and visionary behind its AI-powered conversational design.  
+🔹 **Microsoft Copilot** – Assisted in refining AI logic, deep learning categorization, and system architecture.  
+🔹 **OpenAI** – Providing advanced AI capabilities through GPT-based conversational intelligence.  
+🔹 **Microsoft** – Developer of **Copilot AI**, contributing AI support tools to enhance development efficiency.  
+🔹 **Tkinter** – Enabling the **sleek minimalist graphical UI** for GodAi’s interactive experience.  
+🔹 **JSON** – Used for **structured Q&A storage**, ensuring seamless response retrieval.  
+
+### **License**  
+This project is licensed under the **MIT License**.  
+See the full license details in the [`LICENSE`](LICENSE) file in this repository.  
